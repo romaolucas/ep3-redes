@@ -177,6 +177,7 @@ Qual o motivo dessa diferença? Use a saída do comando
 \texttt{tcpdump}, deixando claro em quais computadores virtuais ele
 foi executado, para justificar a sua resposta.}
 
+\begin{verbatim}
 mininet> iperf 
 *** Iperf: testing TCP bandwidth between h1 and h3 
 *** Results: ['28.9 Gbits/sec', '28.9 Gbits/sec'] 
@@ -192,9 +193,13 @@ mininet> iperf
 mininet> iperf 
 *** Iperf: testing TCP bandwidth between h1 and h3 
 *** Results: ['27.4 Gbits/sec', '27.5 Gbits/sec']
+\end{verbatim}
 
 Valor médio: 28.8 Gbits/sec
 Intervalo de confiança de 95\%: (27.94, 29.66)
+
+O resultado é 1571 vezes maior do que o da seção anterior, pois agora os fluxos sao adicionados conforme
+as portas sao descobertas e o comportamento voltou a ser de um switch assim ele nao envia sempre o pacote para todo mundo da rede.
 
 \section{Passo 4 - Parte 3}
 
@@ -223,7 +228,7 @@ com cada um)}
 \section{Referências}
 
 \begin{itemize}
-   \item
+   \item www.comp.nus.edu.sg/~tbma/teaching/cs5229y14_past/Tutorial.pdf
    \item
    % \item (Coloque quantos itens forem necessários)
 \end{itemize}
