@@ -201,6 +201,8 @@ Intervalo de confiança de 95\%: (18.64, 20.32)
 Quase não houve diferença apesar de agora estarmos usando o resend packet quando a porta destino é conhecida,
 talvez a diferença entre os computadores que foram usados desse passo pro anterior tenha algo a ver, mas de qualquer forma a mudança não deveria ser muito grande dado que os pacotes ainda são reenviados várias vezes e o switch não cria os fluxos para evitar passar pelo controlador.
 
+
+
 \section{Passo 4 - Parte 3}
 
 \textbf{Execute o comando \texttt{iperf}, conforme descrito no
@@ -234,6 +236,21 @@ mininet> iperf
 Valor médio: 28.8 Gbits/sec
 Intervalo de confiança de 95\%: (27.94, 29.66)
 
+ovs-ofctl antes e depois de executar um pingall:
+\begin{verbatim}
+mininet@mininet-vm:~$ sudo ovs-ofctl dump-flows s1
+NXST_FLOW reply (xid=0x4):
+mininet@mininet-vm:~$ sudo ovs-ofctl dump-flows s1
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=2.755s, table=0, n_packets=1, n_bytes=98, idle_timeout=30, idle_age=2, dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:02 actions=output:2
+ cookie=0x0, duration=2.681s, table=0, n_packets=2, n_bytes=196, idle_timeout=30, idle_age=2, dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:01 actions=output:1
+ cookie=0x0, duration=2.717s, table=0, n_packets=1, n_bytes=98, idle_timeout=30, idle_age=2, dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:01 actions=output:1
+ cookie=0x0, duration=2.489s, table=0, n_packets=0, n_bytes=0, idle_timeout=30, idle_age=2, dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:02 actions=output:2
+ cookie=0x0, duration=2.641s, table=0, n_packets=1, n_bytes=98, idle_timeout=30, idle_age=2, dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:03 actions=output:3
+ cookie=0x0, duration=2.609s, table=0, n_packets=2, n_bytes=140, idle_timeout=30, idle_age=2, dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:03 actions=output:3
+mininet@mininet-vm:~$ 
+\end{verbatim}
+
 O resultado é 1571 vezes maior do que o da seção anterior, pois agora os fluxos são adicionados conforme
 as portas são descobertas, evitando alguns caminhos que passam pelo controlador após fluxos serem adicionados.
 
@@ -248,6 +265,11 @@ são recomendadas)}
 \section{Configuração dos computadores virtual e real usados nas
 medições (se foi usado mais de um, especifique qual passo foi feito
 com cada um)}
+Para secao 6 e 7, foi utilizado um computador com processador i7-4510U, 6GB de RAM, Ubuntu 16.04 64 bits.
+e uma maquina virtual Mininet-VM 64 bits com 1GB de RAM.
+
+E para as outras secoes:
+Processador i7, 8gb de RAM, 1 TB HD, Antergos Linux
 
 \section{Referências}
 
