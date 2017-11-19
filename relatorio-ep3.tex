@@ -177,6 +177,25 @@ Qual o motivo dessa diferença? Use a saída do comando
 \texttt{tcpdump}, deixando claro em quais computadores virtuais ele
 foi executado, para justificar a sua resposta.}
 
+mininet> iperf 
+*** Iperf: testing TCP bandwidth between h1 and h3 
+*** Results: ['28.9 Gbits/sec', '28.9 Gbits/sec'] 
+mininet> iperf 
+*** Iperf: testing TCP bandwidth between h1 and h3 
+*** Results: ['28.6 Gbits/sec', '28.7 Gbits/sec'] 
+mininet> iperf 
+*** Iperf: testing TCP bandwidth between h1 and h3 
+*** Results: ['29.9 Gbits/sec', '30.0 Gbits/sec'] 
+mininet> iperf 
+*** Iperf: testing TCP bandwidth between h1 and h3 
+*** Results: ['29.6 Gbits/sec', '29.7 Gbits/sec'] 
+mininet> iperf 
+*** Iperf: testing TCP bandwidth between h1 and h3 
+*** Results: ['27.4 Gbits/sec', '27.5 Gbits/sec']
+
+Valor médio: 28.8 Gbits/sec
+Intervalo de confiança de 95\%: (27.94, 29.66)
+
 \section{Passo 4 - Parte 3}
 
 \textbf{Execute o comando \texttt{iperf}, conforme descrito no
