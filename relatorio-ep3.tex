@@ -178,6 +178,42 @@ Qual o motivo dessa diferença? Use a saída do comando
 foi executado, para justificar a sua resposta.}
 
 \begin{verbatim}
+mininet> iperf
+*** Iperf: testing TCP bandwidth between h1 and h3
+*** Results: ['20.9 Mbits/sec', '24.1 Mbits/sec']
+mininet> iperf
+*** Iperf: testing TCP bandwidth between h1 and h3
+*** Results: ['18.3 Mbits/sec', '20.8 Mbits/sec']
+mininet> iperf
+*** Iperf: testing TCP bandwidth between h1 and h3
+*** Results: ['19.2 Mbits/sec', '21.9 Mbits/sec']
+mininet> iperf
+*** Iperf: testing TCP bandwidth between h1 and h3
+*** Results: ['19.8 Mbits/sec', '22.5 Mbits/sec']
+mininet> iperf
+*** Iperf: testing TCP bandwidth between h1 and h3
+*** Results: ['19.2 Mbits/sec', '22.0 Mbits/sec']
+\end{verbatim}
+
+Valor médio: 19.48 Mbits/sec
+Intervalo de confiança de 95\%: (18.64, 20.32)
+
+Quase nao houve diferenca apesar de agora estarmos usando o resend packet quando a porta destino eh conhecida,
+talvez a diferenca entre os computadores que foram usados desse passo pro anterior tenha algo a ver, mas de qualquer forma a mudanca nao era pra ser muito grande dado que ainda eh reenviado varias vezes e o switch nao cria os fluxos para aprender.
+
+\section{Passo 4 - Parte 3}
+
+\textbf{Execute o comando \texttt{iperf}, conforme descrito no
+tutorial, usando o seu controlador \texttt{switch.py} melhorado, 5
+vezes. Escreva abaixo o valor médio e o intervalo de confiança da taxa
+retornada (considere sempre o primeiro valor do vetor retornado). O
+resultado agora corresponde a quantas vezes mais o da Seção anterior?
+Qual o motivo dessa diferença? Use a saída do comando
+\texttt{tcpdump}, deixando claro em quais computadores virtuais ele
+foi executado, e saídas do comando \texttt{sudo ovs-ofctl}, com os
+devidos parâmetros, para justificar a sua resposta.}
+
+\begin{verbatim}
 mininet> iperf 
 *** Iperf: testing TCP bandwidth between h1 and h3 
 *** Results: ['28.9 Gbits/sec', '28.9 Gbits/sec'] 
@@ -199,19 +235,7 @@ Valor médio: 28.8 Gbits/sec
 Intervalo de confiança de 95\%: (27.94, 29.66)
 
 O resultado é 1571 vezes maior do que o da seção anterior, pois agora os fluxos sao adicionados conforme
-as portas sao descobertas e o comportamento voltou a ser de um switch assim ele nao envia sempre o pacote para todo mundo da rede.
-
-\section{Passo 4 - Parte 3}
-
-\textbf{Execute o comando \texttt{iperf}, conforme descrito no
-tutorial, usando o seu controlador \texttt{switch.py} melhorado, 5
-vezes. Escreva abaixo o valor médio e o intervalo de confiança da taxa
-retornada (considere sempre o primeiro valor do vetor retornado). O
-resultado agora corresponde a quantas vezes mais o da Seção anterior?
-Qual o motivo dessa diferença? Use a saída do comando
-\texttt{tcpdump}, deixando claro em quais computadores virtuais ele
-foi executado, e saídas do comando \texttt{sudo ovs-ofctl}, com os
-devidos parâmetros, para justificar a sua resposta.}
+as portas sao descobertas, evitando alguns caminhos que passam pelo controlador apos fluxos serem adicionados.
 
 \section{Passo 5}
 
