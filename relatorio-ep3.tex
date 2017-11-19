@@ -198,8 +198,8 @@ mininet> iperf
 Valor médio: 19.48 Mbits/sec
 Intervalo de confiança de 95\%: (18.64, 20.32)
 
-Quase nao houve diferenca apesar de agora estarmos usando o resend packet quando a porta destino eh conhecida,
-talvez a diferenca entre os computadores que foram usados desse passo pro anterior tenha algo a ver, mas de qualquer forma a mudanca nao era pra ser muito grande dado que ainda eh reenviado varias vezes e o switch nao cria os fluxos para aprender.
+Quase não houve diferença apesar de agora estarmos usando o resend packet quando a porta destino é conhecida,
+talvez a diferença entre os computadores que foram usados desse passo pro anterior tenha algo a ver, mas de qualquer forma a mudança não deveria ser muito grande dado que os pacotes ainda são reenviados várias vezes e o switch não cria os fluxos para evitar passar pelo controlador.
 
 \section{Passo 4 - Parte 3}
 
@@ -234,8 +234,8 @@ mininet> iperf
 Valor médio: 28.8 Gbits/sec
 Intervalo de confiança de 95\%: (27.94, 29.66)
 
-O resultado é 1571 vezes maior do que o da seção anterior, pois agora os fluxos sao adicionados conforme
-as portas sao descobertas, evitando alguns caminhos que passam pelo controlador apos fluxos serem adicionados.
+O resultado é 1571 vezes maior do que o da seção anterior, pois agora os fluxos são adicionados conforme
+as portas são descobertas, evitando alguns caminhos que passam pelo controlador após fluxos serem adicionados.
 
 \section{Passo 5}
 
@@ -252,7 +252,7 @@ com cada um)}
 \section{Referências}
 
 \begin{itemize}
-   \item www.comp.nus.edu.sg/~tbma/teaching/cs5229y14_past/Tutorial.pdf
+   \item www.comp.nus.edu.sg/~tbma/teaching/cs5229y14\_past/Tutorial.pdf
    \item
    % \item (Coloque quantos itens forem necessários)
 \end{itemize}
