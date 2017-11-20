@@ -94,7 +94,7 @@ class Tutorial (object):
     #if the port associated with the destination MAC of the packet is known:
     if packet.dst in self.mac_to_port:
       # Send packet out the associated port
-      #self.resend_packet(packet_in, self.mac_to_port[packet.dst])  
+      self.resend_packet(packet_in, self.mac_to_port[packet.dst])  
       #self.resend_packet(packet_in, ...)
 
       # Once you have the above working, try pushing a flow entry
