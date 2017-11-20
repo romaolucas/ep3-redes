@@ -236,7 +236,9 @@ mininet> iperf
 Valor médio: 28.8 Gbits/sec
 Intervalo de confiança de 95\%: (27.94, 29.66)
 
-ovs-ofctl antes e depois de executar um pingall:
+
+Uso de ovs-ofctl antes e depois de executar um pingall:
+
 \begin{verbatim}
 mininet@mininet-vm:~$ sudo ovs-ofctl dump-flows s1
 NXST_FLOW reply (xid=0x4):
@@ -250,6 +252,7 @@ NXST_FLOW reply (xid=0x4):
  cookie=0x0, duration=2.609s, table=0, n_packets=2, n_bytes=140, idle_timeout=30, idle_age=2, dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:03 actions=output:3
 mininet@mininet-vm:~$ 
 \end{verbatim}
+
 
 O resultado é 1571 vezes maior do que o da seção anterior, pois agora os fluxos são adicionados conforme
 as portas são descobertas, evitando alguns caminhos que passam pelo controlador após fluxos serem adicionados.
@@ -265,11 +268,11 @@ são recomendadas)}
 \section{Configuração dos computadores virtual e real usados nas
 medições (se foi usado mais de um, especifique qual passo foi feito
 com cada um)}
-Para secao 6 e 7, foi utilizado um computador com processador i7-4510U, 6GB de RAM, Ubuntu 16.04 64 bits.
+Para seção 6 e 7, foi utilizado um computador com processador i7-4510U, 6GB de RAM, Ubuntu 16.04 64 bits.
 e uma maquina virtual Mininet-VM 64 bits com 1GB de RAM.
-
-E para as outras secoes:
-Processador i7, 8gb de RAM, 1 TB HD, Antergos Linux
+\newline
+E para as outras seções:
+Processador i7, 8gb de RAM, 1 TB HD, Antergos Linux.
 
 \section{Referências}
 
