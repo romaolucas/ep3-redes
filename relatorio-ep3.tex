@@ -236,6 +236,8 @@ mininet> iperf
 Valor médio: 28.8 Gbits/sec
 Intervalo de confiança de 95\%: (27.94, 29.66)
 
+O resultado é 1571 vezes maior do que o da seção anterior, pois agora os fluxos são adicionados conforme
+as portas são descobertas, evitando alguns caminhos que passam pelo controlador após fluxos serem adicionados.
 
 Uso de ovs-ofctl antes e depois de executar um pingall:
 
@@ -253,9 +255,7 @@ NXST_FLOW reply (xid=0x4):
 mininet@mininet-vm:~$ 
 \end{verbatim}
 
-
-O resultado é 1571 vezes maior do que o da seção anterior, pois agora os fluxos são adicionados conforme
-as portas são descobertas, evitando alguns caminhos que passam pelo controlador após fluxos serem adicionados.
+Após o pingall, a tabela de fluxos está preenchida.
 
 \section{Passo 5}
 
@@ -278,7 +278,6 @@ Processador i7, 8gb de RAM, 1 TB HD, Antergos Linux.
 
 \begin{itemize}
    \item www.comp.nus.edu.sg/~tbma/teaching/cs5229y14\_past/Tutorial.pdf
-   \item
    % \item (Coloque quantos itens forem necessários)
 \end{itemize}
 
